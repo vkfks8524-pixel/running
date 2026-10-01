@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111815">
+<meta name="description" content="유튜브 음악과 함께 사용하는 러닝 케이던스 비프음. 설치 없이 목표 걸음 수에 맞춰 달리세요.">
+<title>PACE · 러닝 케이던스</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111815'/%3E%3Cpath d='M5 17h6l3-8 4 15 3-7h6' fill='none' stroke='%23b8f782' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+:root{color-scheme:dark;--bg:#111815;--panel:#1a231e;--line:#344037;--lime:#b8f782;--text:#f0f5ec;--muted:#a5b2a8;font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6}button,input{font:inherit}button,a,input{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:wait;opacity:.65}button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--lime);outline-offset:5px}a{color:var(--lime)}button{border:1px solid var(--line);color:var(--text);background:transparent;border-radius:12px;min-height:48px}button:hover{border-color:var(--lime)}main{width:min(100% - 48px,1020px);margin:0 auto;padding:36px 0 30px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:22px;gap:15px}.brand{display:flex;align-items:center;gap:12px}.mark{height:32px;width:32px;color:var(--lime)}.brand strong{font-size:25px;letter-spacing:.12em}.top small{color:var(--muted);font-size:14px}.tag{border:1px solid var(--line);padding:7px 12px;border-radius:50px;font-size:13px;color:var(--muted)}.intro{margin:30px 0 26px}.intro h1{font-size:clamp(26px,4vw,34px);font-weight:650;letter-spacing:-.04em;margin:0 0 8px}.intro p{margin:0;color:var(--muted)}.workspace{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}.instrument{display:flex;flex-direction:column;align-items:center;border:1px solid var(--line);border-radius:24px;padding:26px 24px 24px;background:linear-gradient(150deg,#202b23,var(--bg))}.state{font-size:14px;display:flex;align-items:center;gap:8px;min-height:24px;color:var(--muted)}.dot{width:7px;height:7px;background:var(--muted);border-radius:50%}.playing .dot{background:var(--lime)}.dial{position:relative;width:min(100%,300px);aspect-ratio:1;margin:18px 0 14px;display:grid;place-items:center;border:1px solid #46553f;border-radius:50%;isolation:isolate}.dial:before{content:"";position:absolute;inset:10px;border-radius:50%;border:9px solid #2a372c;border-top-color:var(--lime);transform:rotate(-35deg)}.dial:after{content:"";position:absolute;inset:20px;border:1px solid #35472d;border-radius:50%;opacity:var(--pulse,0);transform:scale(calc(1 + var(--pulse,0)*.035));z-index:-1;background:rgba(184,247,130,.045)}.dial-inner{text-align:center}.eyebrow{display:block;color:var(--muted);font-size:13px;letter-spacing:.09em}.tempo{display:flex;align-items:baseline;justify-content:center;gap:8px}.tempo input{width:3.1ch;background:transparent;border:0;appearance:textfield;-moz-appearance:textfield;color:var(--text);font-size:clamp(64px,10vw,88px);font-weight:650;line-height:1.2;letter-spacing:-.065em;text-align:center;font-variant-numeric:tabular-nums;padding:0}.tempo input::-webkit-inner-spin-button,.tempo input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.tempo span{font-size:13px;color:var(--lime)}.dial-inner p{font-size:14px;color:var(--muted);margin:4px 0 0}.steps{display:flex;gap:10px;margin-top:13px;justify-content:center}.step{font-size:12px;line-height:29px;width:30px;height:30px;border-radius:50%;background:#2a372c;color:var(--muted)}.step.active{background:var(--lime);color:#18220f}.adjust{display:flex;align-items:center;gap:14px;width:100%}.adjust button{width:48px;flex-shrink:0;font-size:25px}.adjust input{width:100%;min-width:0}.range-labels{display:flex;justify-content:space-between;padding:4px 63px 0;width:100%;color:var(--muted);font-size:12px}.presets{display:flex;width:100%;gap:8px;margin:18px 0}.presets button{flex:1;font-size:14px;min-height:42px;border-radius:8px}.selected{border-color:var(--lime)!important;background:var(--lime)!important;color:#18220f!important;font-weight:650}.start{border:0;background:var(--lime);color:#17220e;width:100%;font-size:18px;font-weight:700;display:flex;justify-content:center;align-items:center;gap:10px;min-height:60px;border-radius:12px}.start:hover{background:#cafca2}.start svg{width:18px;height:18px;fill:currentColor}.session{display:flex;justify-content:space-between;width:100%;color:var(--muted);font-size:13px;margin-top:15px;gap:12px}.session time{color:var(--text);font-variant-numeric:tabular-nums}.settings{display:flex;flex-direction:column;gap:18px}.card{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:24px}.card h2{margin:0 0 20px;font-size:18px;letter-spacing:-.02em}.row{display:flex;align-items:center;justify-content:space-between;gap:16px}.row label{font-size:15px}.row output{font-size:14px;color:var(--lime);font-variant-numeric:tabular-nums}.volume{width:100%;margin:15px 0 20px}input[type=range]{height:26px;accent-color:var(--lime);cursor:pointer}.tone-label{font-size:15px;margin:0 0 10px}.tones{display:flex;gap:8px}.tones button{flex:1;font-size:14px}.separator{border:0;border-top:1px solid var(--line);margin:22px 0}.check{display:flex;gap:10px;align-items:center;font-size:15px;cursor:pointer}.check input{accent-color:var(--lime);width:18px;height:18px;margin:0}.sub{color:var(--muted);font-size:13px;line-height:1.6;margin:9px 0 0}.mix-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.mix-heading h2{margin:0}.mix-heading span{color:var(--lime);font-size:12px;border:1px solid #536e3f;border-radius:6px;padding:3px 8px}.mix p{margin:10px 0;font-size:14px;color:var(--muted)}.mix-status{font-size:13px!important;color:var(--text)!important;padding-left:12px;border-left:2px solid var(--lime)}details{border-top:1px solid var(--line);margin-top:16px;padding-top:14px}summary{font-size:14px;cursor:pointer;color:var(--text)}details ol{padding-left:21px;font-size:14px;color:var(--muted)}details li{margin-bottom:8px}details a{font-size:13px}.notice{font-size:14px;color:#ffcf8c;background:#32281b;border:1px solid #67512d;border-radius:10px;padding:12px 16px;margin-top:18px}.notice[hidden]{display:none}footer{color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;margin-top:25px;padding-top:20px;border-top:1px solid var(--line)}@media(max-width:720px){main{width:calc(100% - 32px);padding-top:20px}.top{padding-bottom:16px}.intro{margin:24px 0 20px}.workspace{grid-template-columns:minmax(0,1fr);gap:18px}.instrument{padding:22px 20px}.settings{gap:14px}.card{padding:22px}.dial{width:min(100%,260px);margin:12px 0}.tag{font-size:12px}.top small{display:none}footer{flex-direction:column;gap:4px}}@media(prefers-reduced-motion:reduce){.dial:after{transform:none}}
+</style>
+</head>
+<body>
+<main>
+ <header class="top"><div class="brand"><svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 17h7l4-10 6 19 4-9h7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>PACE</strong><small>RUNNING METRONOME</small></div><span class="tag">한 걸음, 한 번의 비프음</span></header>
+ <div class="intro"><h1>내 리듬으로 달리기</h1><p>목표 케이던스를 정하고 비프음에 발걸음을 맞춰보세요.</p></div>
+ <div class="workspace">
+  <section class="instrument" id="instrument" aria-label="케이던스 조절 및 재생">
+   <div class="state" role="status"><span class="dot" aria-hidden="true"></span><span id="stateText">시작할 준비 완료</span></div>
+   <div class="dial" id="dial"><div class="dial-inner"><label class="eyebrow" for="bpm">목표 케이던스</label><div class="tempo"><input id="bpm" type="number" min="100" max="220" step="1" value="180" inputmode="numeric" aria-label="목표 케이던스, 분당 걸음 수"><span>SPM</span></div><p>분당 걸음 수 · 양발 합계</p><div class="steps" aria-hidden="true"><span id="leftStep" class="step">L</span><span id="rightStep" class="step">R</span></div></div></div>
+   <div class="adjust"><button id="minus" aria-label="케이던스 1 낮추기">−</button><input type="range" id="bpmRange" min="100" max="220" value="180" aria-label="케이던스 슬라이더"><button id="plus" aria-label="케이던스 1 높이기">+</button></div><div class="range-labels"><span>100</span><span>220 SPM</span></div>
+   <div class="presets" aria-label="케이던스 빠른 선택"><button data-bpm="160" aria-pressed="false">160</button><button data-bpm="170" aria-pressed="false">170</button><button class="selected" data-bpm="180" aria-pressed="true">180</button><button data-bpm="190" aria-pressed="false">190</button></div>
+   <button class="start" id="toggle" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path id="playIcon" d="M5 2l13 8-13 8z"/></svg><span id="toggleText">러닝 시작</span></button>
+   <div class="session"><span>재생 시간 <time id="elapsed">00:00</time></span><span id="interval">0.333초마다 비프음</span></div>
+  </section>
+  <aside class="settings" aria-label="소리 및 동시 재생 설정">
+   <section class="card"><h2>비프음 설정</h2><div class="row"><label for="volume">비프음 볼륨</label><output id="volumeValue" for="volume">35%</output></div><input class="volume" id="volume" type="range" min="0" max="100" value="35" aria-label="비프음 볼륨"><p class="tone-label">소리</p><div class="tones" aria-label="비프음 종류"><button data-tone="soft" class="selected" aria-pressed="true">부드럽게</button><button data-tone="clear" aria-pressed="false">또렷하게</button><button data-tone="click" aria-pressed="false">클릭</button></div><hr class="separator"><label class="check"><input type="checkbox" id="keepAwake" checked>재생 중 화면 켜두기</label><p class="sub" id="wakeStatus" role="status">시작하면 화면 유지 기능을 요청합니다.</p></section>
+   <section class="card mix"><div class="mix-heading"><h2>음악과 함께</h2><span>동시 재생 설정</span></div><p>Brave에서 유튜브 음악을 먼저 재생한 뒤, 이 페이지에서 러닝을 시작하세요.</p><p class="mix-status" id="mixStatus">오디오 지원 여부를 확인하고 있습니다.</p><details><summary>동시 재생이 안 될 때</summary><ol><li>유튜브와 이 파일을 Brave의 서로 다른 탭으로 열고, 음악을 먼저 재생하세요.</li><li>휴대폰에서는 Brave의 백그라운드 재생 설정을 확인하세요. iPhone의 Brave Playlist도 선택지입니다.</li><li>비프음을 시작한 뒤 음악이 멈추면 유튜브 탭에서 음악을 다시 재생하고 돌아오세요.</li><li>화면 잠금이나 앱 전환으로 소리가 끊기면 이 페이지를 화면에 띄운 채 사용하세요.</li></ol><p>동시 재생은 기기·Brave·유튜브 정책에 따라 달라집니다. 웹페이지가 시스템의 오디오 권한이나 백그라운드 제한을 강제로 바꿀 수는 없습니다.</p><a href="https://www.w3.org/TR/audio-session/" target="_blank" rel="noopener noreferrer">오디오 동시 재생 설정 참고</a> · <a href="https://support.brave.com/hc/en-us/articles/360060768611-How-do-I-use-Brave-Playlist" target="_blank" rel="noopener noreferrer">Brave Playlist 안내</a></details></section>
+  </aside>
+ </div>
+ <div id="notice" class="notice" role="alert" hidden></div>
+ <footer><span>목표 리듬을 들려주는 메트로놈입니다. 실제 걸음 수를 측정하지는 않습니다.</span><span>SPACE 시작 / 정지</span></footer>
+</main>
+<script>
+'use strict';
+// One repeating PCM buffer is rendered by the audio engine. No setInterval-based
+// beep scheduling: inactive-tab timer throttling cannot introduce cadence drift.
+const $ = id => document.getElementById(id);
+let bpm = 180, volume = .35, tone = 'soft';
+let ctx = null, master = null, source = null, playing = false, busy = false;
+let phaseBase = 0, phaseAnchor = 0, sessionStart = 0, frame = 0;
+let wakeLock = null, wakeRequest = 0;
+let mixMode = false;
+function configureMixing() {
+ mixMode = false;
+ try {
+  if ('audioSession' in navigator) {
+   navigator.audioSession.type = 'ambient';
+   mixMode = navigator.audioSession.type === 'ambient';
+  }
+ } catch (_) { /* Fall back to Web Audio's normal platform behavior. */ }
+ $('mixStatus').textContent = mixMode
+  ? '다른 소리와 섞이는 ambient 모드가 적용되었습니다.'
+  : 'Web Audio로 재생 · 동시 재생 여부는 기기에서 확인해주세요.';
+}
+configureMixing();
+function notice(message = '') {
+ $('notice').textContent = message;
+ $('notice').hidden = !message;
+}
+function phaseAt(now) { return phaseBase + (now - phaseAnchor) * bpm / 60; }
+function makeBuffer() {
+ const length = Math.ceil(ctx.sampleRate * 60 / bpm);
+ const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
+ const samples = buffer.getChannelData(0);
+ const duration = tone === 'click' ? .018 : .055;
+ const frequency = tone === 'clear' ? 1500 : tone === 'click' ? 2100 : 880;
+ for (let i = 0; i < Math.min(length, Math.floor(duration * ctx.sampleRate)); i++) {
+  const t = i / ctx.sampleRate;
+  const attack = Math.min(1, t / .003);
+  const fade = Math.max(0, 1 - t / duration);
+  const envelope = attack * fade * fade;
+  const wave = Math.sin(2 * Math.PI * frequency * t);
+  samples[i] = .7 * envelope * (tone === 'click' ? wave * Math.exp(-150 * t) : wave);
+ }
+ return buffer;
+}
+function replaceLoop(now, phase) {
+ const next = ctx.createBufferSource();
+ const buffer = makeBuffer();
+ next.buffer = buffer;
+ next.loop = true;
+ // Correct fractional-sample rounding so the audible period is exactly 60/bpm.
+ next.playbackRate.value = buffer.duration * bpm / 60;
+ next.connect(master);
+ next.start(now, (((phase % 1) + 1) % 1) * buffer.duration);
+ if (source) { source.stop(now); source.disconnect(); }
+ source = next;
+}
+function updateTempo(value) {
+ const number = Number(value);
+ if (!Number.isFinite(number) || String(value).trim() === '') { $('bpm').value = bpm; return; }
+ const now = ctx ? ctx.currentTime : 0;
+ const phase = playing ? phaseAt(now) : 0;
+ bpm = Math.max(100, Math.min(220, Math.round(number)));
+ phaseBase = phase; phaseAnchor = now;
+ $('bpm').value = bpm; $('bpmRange').value = bpm;
+ $('interval').textContent = `${(60 / bpm).toFixed(3)}초마다 비프음`;
+ document.querySelectorAll('[data-bpm]').forEach(button => {
+  const selected = Number(button.dataset.bpm) === bpm;
+  button.classList.toggle('selected', selected); button.setAttribute('aria-pressed', String(selected));
+ });
+ if (playing) replaceLoop(now, phase);
+}
+function render() {
+ if (!playing) return;
+ const now = ctx.currentTime;
+ const phase = phaseAt(now), fraction = phase - Math.floor(phase);
+ const audible = ctx.state === 'running';
+ $('dial').style.setProperty('--pulse', audible ? Math.max(0, 1 - fraction * 4).toFixed(3) : '0');
+ $('leftStep').classList.toggle('active', audible && Math.floor(phase) % 2 === 0);
+ $('rightStep').classList.toggle('active', audible && Math.floor(phase) % 2 === 1);
+ const seconds = Math.max(0, Math.floor(now - sessionStart));
+ $('elapsed').textContent = `${String(Math.floor(seconds / 60)).padStart(2,'0')}:${String(seconds % 60).padStart(2,'0')}`;
+ frame = requestAnimationFrame(render);
+}
+function updatePlaybackUI() {
+ const running = playing && ctx && ctx.state === 'running';
+ $('instrument').classList.toggle('playing', running);
+ $('toggle').setAttribute('aria-pressed', String(playing));
+ $('toggleText').textContent = playing ? (running ? '러닝 정지' : '소리 다시 시작') : '러닝 시작';
+ $('playIcon').setAttribute('d', running ? 'M4 3h4v14H4zM12 3h4v14h-4z' : 'M5 2l13 8-13 8z');
+ $('stateText').textContent = playing ? (running ? (volume === 0 ? '리듬 재생 중 · 음소거' : '리듬 재생 중') : '오디오가 일시 중단되었습니다') : '시작할 준비 완료';
+ if (playing && !running) {
+  notice('브라우저가 오디오를 중단했습니다. 이 화면에서 ‘소리 다시 시작’을 눌러주세요.');
+ } else notice();
+}
+async function releaseWakeLock() {
+ wakeRequest++;
+ const lock = wakeLock; wakeLock = null;
+ if (lock && !lock.released) { try { await lock.release(); } catch (_) {} }
+}
+async function requestWakeLock() {
+ if (!playing || !$('keepAwake').checked || document.visibilityState !== 'visible') return;
+ if (wakeLock && !wakeLock.released) return;
+ if (!('wakeLock' in navigator) || !window.isSecureContext) {
+  $('wakeStatus').textContent = '화면 유지 기능을 사용할 수 없습니다. 기기의 자동 잠금 설정을 확인하세요.';
+  return;
+ }
+ const request = ++wakeRequest;
+ try {
+  const lock = await navigator.wakeLock.request('screen');
+  if (request !== wakeRequest || !playing || !$('keepAwake').checked) { await lock.release(); return; }
+  wakeLock = lock;
+  $('wakeStatus').textContent = '화면을 켜두는 중입니다.';
+  lock.addEventListener('release', () => {
+   if (wakeLock !== lock) return;
+   wakeLock = null;
+   $('wakeStatus').textContent = '화면 유지가 해제되었습니다. 페이지로 돌아오면 다시 요청합니다.';
+  });
+ } catch (_) { $('wakeStatus').textContent = '화면 유지 요청이 거절되었습니다. 자동 잠금 설정을 확인하세요.'; }
+}
+async function start() {
+ configureMixing();
+ if (!ctx) {
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) throw new Error('이 브라우저는 Web Audio를 지원하지 않습니다. 최신 Brave에서 열어주세요.');
+  ctx = new AudioContextClass({latencyHint:'interactive'});
+  master = ctx.createGain(); master.gain.value = volume; master.connect(ctx.destination);
+  ctx.addEventListener('statechange', updatePlaybackUI);
+ }
+ await ctx.resume();
+ if (ctx.state !== 'running') throw new Error('오디오를 시작하지 못했습니다. Brave에서 이 페이지의 소리를 허용한 뒤 다시 눌러주세요.');
+ if (!playing) {
+  const now = ctx.currentTime;
+  phaseBase = 0; phaseAnchor = now; sessionStart = now;
+  replaceLoop(now, 0); playing = true;
+  cancelAnimationFrame(frame); render();
+ }
+ updatePlaybackUI();
+ void requestWakeLock();
+}
+function stop() {
+ playing = false;
+ if (source) { source.stop(); source.disconnect(); source = null; }
+ cancelAnimationFrame(frame);
+ $('dial').style.setProperty('--pulse','0');
+ $('leftStep').classList.remove('active'); $('rightStep').classList.remove('active');
+ void releaseWakeLock();
+ $('wakeStatus').textContent = $('keepAwake').checked ? '시작하면 화면 유지 기능을 요청합니다.' : '기기의 화면 잠금 설정을 따릅니다.';
+ updatePlaybackUI();
+ // Source is gone; suspend the unused context to release audio resources.
+ if (ctx && ctx.state !== 'closed') void ctx.suspend().catch(() => {});
+}
+$('toggle').addEventListener('click', async () => {
+ if (busy) return;
+ busy = true; $('toggle').disabled = true;
+ try {
+  if (playing && ctx.state === 'running') stop(); else await start();
+ } catch (error) { if (playing) stop(); notice(error.message || '소리를 시작할 수 없습니다. 다시 눌러주세요.'); }
+ finally { busy = false; $('toggle').disabled = false; }
+});
+$('bpm').addEventListener('change', event => updateTempo(event.target.value));
+$('bpm').addEventListener('keydown', event => { if (event.key === 'Enter') { updateTempo(event.target.value); event.target.blur(); } });
+$('bpmRange').addEventListener('input', event => updateTempo(event.target.value));
+$('minus').addEventListener('click', () => updateTempo(bpm - 1));
+$('plus').addEventListener('click', () => updateTempo(bpm + 1));
+document.querySelectorAll('[data-bpm]').forEach(button => button.addEventListener('click', () => updateTempo(button.dataset.bpm)));
+$('volume').addEventListener('input', event => {
+ volume = Number(event.target.value) / 100; $('volumeValue').textContent = `${event.target.value}%`;
+ if (master) master.gain.setTargetAtTime(volume, ctx.currentTime, .015);
+ updatePlaybackUI();
+});
+document.querySelectorAll('[data-tone]').forEach(button => button.addEventListener('click', () => {
+ tone = button.dataset.tone;
+ document.querySelectorAll('[data-tone]').forEach(item => { const active = item === button; item.classList.toggle('selected',active); item.setAttribute('aria-pressed',String(active)); });
+ if (playing) { const now = ctx.currentTime; replaceLoop(now, phaseAt(now)); }
+}));
+$('keepAwake').addEventListener('change', () => {
+ if ($('keepAwake').checked) {
+  $('wakeStatus').textContent = '시작하면 화면 유지 기능을 요청합니다.'; void requestWakeLock();
+ } else { void releaseWakeLock(); $('wakeStatus').textContent = '기기의 화면 잠금 설정을 따릅니다.'; }
+});
+document.addEventListener('visibilitychange', () => {
+ if (document.visibilityState === 'visible' && playing) {
+  updatePlaybackUI(); void requestWakeLock();
+ }
+ // Do not stop the loop just because the user switches to a YouTube tab.
+});
+document.addEventListener('keydown', event => {
+ if (event.code !== 'Space' || event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;
+ const target = event.target;
+ if (target.closest('input,button,textarea,select,summary,a') || target.isContentEditable) return;
+ event.preventDefault(); $('toggle').click();
+});
+window.addEventListener('pagehide', stop);
+updateTempo(180);
+</script>
+</body>
+</html>
